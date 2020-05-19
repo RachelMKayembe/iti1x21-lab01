@@ -1,5 +1,4 @@
 public class Q3_ReverseSortDemo {
-
   public static void main(String[] args){
     char[] unorderedLetters;
     unorderedLetters = new char[]{'b', 'm', 'z', 'a', 'u'};
@@ -8,10 +7,22 @@ public class Q3_ReverseSortDemo {
       System.out.print(unorderedLetters[i]);
   }
 
-  //method that sorts a char array into its reverse alphabetical order
   public static void reverseSort(char[] values){
 
-    //your code here
-  }
+      int i, j, argMax;
+      char tmp;
 
+      for (i = 0; i < values.length - 1; i++) {
+        argMax = i;
+        for (j = i + 1; j < values.length; j++) {
+         if (values[j] > values[argMax]) { // cette condition cherche pour la valeur la plus grande de la table
+           argMax = j; //Cette ligne specifie que l'index j dispose un mariable plus grand
+         }
+       }
+
+       tmp = values[argMax];
+       values[argMax] = values[i];
+       values[i] = tmp;
+     }
+   }
 }

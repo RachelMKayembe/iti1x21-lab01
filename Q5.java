@@ -35,14 +35,14 @@ public class Q5 {
   //method that determines if the number x is prime
   public static boolean isPrime(int x){
     boolean prime = true;
-    if(x < ){
-      prime = ;
+    if(x < 2){ // 0 et 1 ne sont pas des nombres premiers
+      prime = false ;
     }
-    if(x== ){
-      prime = ;
+    if(x==2 ){  // on aura pas besoin de vérifier x = 2 dans la boucle for
+      prime = true;
     }
     int i = 2;
-    while(prime && x < i){
+    while(prime && x > i){
       if(x % i == 0){
         prime = false;
       }
@@ -53,19 +53,26 @@ public class Q5 {
 
   //returns the fibonacci number at the position in parameter
   public static int getFibonacci(int position) {
-
     int num = 0;
     int num2 = 1;
     int fibonacci = 0;
 
-    if (position == ) {
+    if (position ==0 ) {
       fibonacci = 0;
     } else if (position == 1) {
-      fibonacci = ;
+      fibonacci = 1;
+      num = num2; // num = 1, et elle sera retourner
+      num2 = fibonacci;
     } else {
-      for (int i = 2; ; ) {
-        fibonacci = ;
-        num = num2;
+      int[] tableFib;
+      tableFib = new int[]{0,1,1,2,3,5,8,13,21,34};
+      for (int i = 2; i< position+1; i++ ) {
+        if (i==position){
+          num2= tableFib[position]; // identifie le dexieme nombre pour le calcule du fibonacci
+          num= tableFib[position-1]; // identifie le premier nombre pour le calcule du fibonacci
+          }
+        fibonacci = num2+num ; // fait le calcule fibonacci
+        num = num2; // num = tableFib[position] et elle est retourner a la fin
         num2 = fibonacci;
       }
     }
